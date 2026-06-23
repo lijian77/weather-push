@@ -64,13 +64,3 @@ async function main() {
 }
 
 main().catch(e => { console.error(e); process.exit(1); });
-第四步：提交推送
-
-在 Git Bash 里进入 weather-push 文件夹，执行：
-
-git init
-git add .
-git commit -m "feat: 每日天气预警推送"
-git branch -M main
-git remote add origin https://github.com/lijian77/weather-push.git
-git push -u origin main --force
