@@ -1,0 +1,19 @@
+name: 每日天气预警推送
+
+on:
+  schedule:
+    - cron: '0 0,6 * * *'
+  workflow_dispatch:
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: 运行推送脚本
+        run: node scripts/weather-push.js
+        env:
+          DINGTALK_WEBHOOK: ${{ secrets.DINGTALK_WEBHOOK }}
